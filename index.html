@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знайка</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Знайка</h1>
+    <div class="button-container">
+        <button class="button" onclick="startLesson('математика')">Математика</button>
+        <button class="button" onclick="startLesson('информатика')">Информатика</button>
+        <button class="button" onclick="startLesson('физика')">Физика</button>
+        <button class="button" onclick="startLesson('химия')">Химия</button>
+        <button class="button" onclick="startLesson('география')">География</button>
+        <button class="button" onclick="startLesson('биология')">Биология</button>
+        <button class="button" onclick="startLesson('история')">История</button>
+        <button class="button" onclick="startLesson('обществознание')">Обществознание</button>
+        <button class="button" onclick="startLesson('русский язык')">Русский язык</button>
+        <button class="button" onclick="startLesson('литература')">Литература</button>
+        <button class="button" onclick="startLesson('английский язык')">Английский</button>
+    </div>
+
+    <script>
+        function startLesson(subject) {
+            alert('Начинаем урок по ' + subject + '!'); // Замените это на реальное перенаправление, когда будет готово
+            // Перенаправление на страницу с теорией и тестами
+            // window.location.href = `/lesson.html?subject=${subject}`;
+        }
+    </script>
+</body>
+</html>
