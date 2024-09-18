@@ -51,6 +51,32 @@
             padding: 10px;
             border-radius: 5px;
         }
+
+        .sidebar {
+            position: fixed; /* Fixed sidebar */
+            right: 20px;
+            top: 100px; /* Adjust based on your content */
+            width: 200px; /* Width of the sidebar */
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            display: block;
+            text-align: center;
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #e0e0e0;
+        }
     </style>
 </head>
 <body>
@@ -225,6 +251,11 @@
             <p><strong>Решение:</strong> V = 5 см ⋅ 5 см ⋅ 5 см = 125 см³</p>
             <p><strong>Ответ:</strong> Объем куба равен 125 см³.</p>
         </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>Дополнительно</h2>
+        <a href="math_quiz.html">Math Quiz</a>
     </div>
 
 </body>
