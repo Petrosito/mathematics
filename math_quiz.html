@@ -6,7 +6,7 @@
     <title>Тест по математике</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f2f2f2;
             margin: 0;
             padding: 50px;
@@ -15,39 +15,68 @@
         .container {
             max-width: 600px;
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-        .hidden {
-            display: none;
+        h1, h2 {
+            color: #333;
         }
 
         button {
-            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
 
         .question {
             font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .answer-option {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .answer-option:hover {
+            background: #e9e9e9;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #d9534f;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1><strong>Математика</strong></h1>
-        <h2><strong>Арифметика</strong></h2>
-        <p>
-            <strong>Арифметика</strong> - это раздел <strong>математики</strong>, изучающий основные операции с числами: сложение, вычитание, умножение и деление.
-        </p>
-        <button id="nextButton">Далее</button>
-
-        <div id="quiz" class="hidden">
+        <h1>Тест по математике</h1>
+        <h2>Арифметика</h2>
+        
+        <div id="quiz">
             <h2>Тест</h2>
-            <div id="question"></div>
+            <div id="question" class="question"></div>
             <div id="answers"></div>
             <button id="submitAnswer">ОК</button>
             <div id="result"></div>
+            <button id="nextButton" style="display: none;">Далее</button>
         </div>
     </div>
 
@@ -70,23 +99,18 @@
         ];
 
         document.getElementById('nextButton').onclick = function() {
-            document.getElementById('quiz').classList.remove('hidden');
+            currentQuestion++;
             displayQuestion();
         };
 
         document.getElementById('submitAnswer').onclick = function() {
             const selected = document.querySelector('input[name="answer"]:checked');
-            if (!selected) return;
+            if (!selected) return alert('Пожалуйста, выберите ответ.');
 
             const answer = parseInt(selected.value);
             if (answer === questions[currentQuestion].correct) {
                 alert('Правильно!');
-                currentQuestion++;
-                if (currentQuestion < questions.length) {
-                    displayQuestion();
-                } else {
-                    alert('Поздравляем! Вы прошли тест.');
-                }
+                document.getElementById('nextButton').style.display = 'block';
             } else {
                 attempts++;
                 alert('Неправильно. Попробуйте снова.');
@@ -98,20 +122,28 @@
         };
 
         function displayQuestion() {
-            const question = questions[currentQuestion];
-            document.getElementById('question').innerHTML = `<span class="question">${question.question}</span>`;
-            document.getElementById('answers').innerHTML = question.answers.map((answer, index) => {
-                return `<div><input type="radio" name="answer" value="${index}">${answer}</div>`;
-            }).join('');
+            if (currentQuestion < questions.length) {
+                const question = questions[currentQuestion];
+                document.getElementById('question').innerHTML = question.question;
+                document.getElementById('answers').innerHTML = question.answers.map((answer, index) => {
+                    return `<div class="answer-option"><input type="radio" name="answer" value="${index}">${answer}</div>`;
+                }).join('');
+                document.getElementById('nextButton').style.display = 'none'; // Hide next button initially
+            } else {
+                alert('Поздравляем! Вы прошли тест.');
+            }
         }
 
         function resetQuiz() {
             currentQuestion = 0;
             attempts = 0;
-            questions.sort(() => 0.5 - Math.random()); // Перемешать вопросы
-            document.getElementById('quiz').classList.add('hidden');
+            questions.sort(() => 0.5 - Math.random());
+            displayQuestion();
             document.getElementById('result').innerHTML = '';
         }
+
+        // Initialize the first question
+        displayQuestion();
     </script>
 </body>
 </html>
