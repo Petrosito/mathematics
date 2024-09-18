@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест по математике</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        .question {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><strong>Математика</strong></h1>
+        <h2><strong>Арифметика</strong></h2>
+        <p>
+            <strong>Арифметика</strong> - это раздел <strong>математики</strong>, изучающий основные операции с числами: сложение, вычитание, умножение и деление.
+        </p>
+        <button id="nextButton">Далее</button>
+
+        <div id="quiz" class="hidden">
+            <h2>Тест</h2>
+            <div id="question"></div>
+            <div id="answers"></div>
+            <button id="submitAnswer">ОК</button>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        let attempts = 0;
+        const maxAttempts = 3;
+
+        const questions = [
+            { question: "Слон весит ___ тонн", answers: ["5", "6", "10"], correct: 0 },
+            { question: "Площадь треугольника S = (1/2) ⋅ a ⋅ h. Какова формула для площади квадрата?", answers: ["S = a", "S = a²", "S = a³"], correct: 1 },
+            { question: "Решение уравнения 2x - 5 = 1, где x =", answers: ["1", "2", "3"], correct: 2 },
+            { question: "Объем куба V = a³. Если a = 5, то V =", answers: ["25", "100", "125"], correct: 2 },
+            { question: "Частное от деления числа 24 на 6 равно ___", answers: ["4", "6", "10"], correct: 0 },
+            { question: "Сложение - это операция ___", answers: ["уменьшения", "увеличения", "умножения"], correct: 1 },
+            { question: "Умножение: a ⋅ b = c, где c - это ___", answers: ["слагаемое", "разность", "произведение"], correct: 2 },
+            { question: "Свойство сложения: a + b = b + a, это называется ___ свойством", answers: ["переместительным", "сочетательным", "распределительным"], correct: 0 },
+            { question: "Распределительное свойство умножения: a ⋅ (b + c) = a ⋅ b + a ⋅ c - это пример ___", answers: ["сложения", "разности", "умножения"], correct: 2 },
+            { question: "Число, которое делится на 1 и само на себя называется ___", answers: ["первым", "простым", "комплексным"], correct: 1 }
+        ];
+
+        document.getElementById('nextButton').onclick = function() {
+            document.getElementById('quiz').classList.remove('hidden');
+            displayQuestion();
+        };
+
+        document.getElementById('submitAnswer').onclick = function() {
+            const selected = document.querySelector('input[name="answer"]:checked');
+            if (!selected) return;
+
+            const answer = parseInt(selected.value);
+            if (answer === questions[currentQuestion].correct) {
+                alert('Правильно!');
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    displayQuestion();
+                } else {
+                    alert('Поздравляем! Вы прошли тест.');
+                }
+            } else {
+                attempts++;
+                alert('Неправильно. Попробуйте снова.');
+                if (attempts >= maxAttempts) {
+                    alert('Вы не прошли тест. Попробуйте снова.');
+                    resetQuiz();
+                }
+            }
+        };
+
+        function displayQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById('question').innerHTML = `<span class="question">${question.question}</span>`;
+            document.getElementById('answers').innerHTML = question.answers.map((answer, index) => {
+                return `<div><input type="radio" name="answer" value="${index}">${answer}</div>`;
+            }).join('');
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            attempts = 0;
+            questions.sort(() => 0.5 - Math.random()); // Перемешать вопросы
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
