@@ -34,7 +34,15 @@
             margin-bottom: 10px;
         }
 
-        
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: auto;
+        }
 
         button {
             background-color: #4CAF50;
@@ -83,7 +91,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .formula {
             display: inline-block;
             background-color: #e9ecef;
@@ -118,10 +126,10 @@
             <div id="result"></div>
             <button id="nextButton" style="display: none;">Далее</button>
         </div>
-    </div>
 
-    <div class="section">
-        <button id="mathIndexButton" onclick="window.location.href='https://petrosito.github.io/mathematics/index.html'">Go to Math Index</button>
+        <a href="math_index.html">
+            <button>Вернуться к Математике</button>
+        </a>
     </div>
 
     <script>
