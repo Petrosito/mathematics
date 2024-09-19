@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест по математике</title>
+    <title>Математика и Тест по Математике</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -12,6 +12,9 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
@@ -21,6 +24,12 @@
             color: #007bff;
         }
 
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #28a745;
+        }
 
         h3 {
             color: #35424a;
@@ -28,14 +37,34 @@
             margin-bottom: 10px;
         }
 
-        .container {
-            max-width: 600px;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin: auto;
+        p {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Initially hide all sections */
+        }
+
+        .formula {
+            display: inline-block;
+            background-color: #e9ecef;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .example {
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #007bff;
         }
 
         button {
@@ -53,9 +82,14 @@
             background-color: #45a049;
         }
 
-        .question {
-            font-weight: bold;
-            margin: 20px 0;
+        /* Styles for the quiz section */
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .answer-option {
@@ -77,53 +111,73 @@
             font-weight: bold;
             color: #d9534f;
         }
-
-        .section {
-            margin-bottom: 50px;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .formula {
-            display: inline-block;
-            background-color: #e9ecef;
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .example {
-            margin-top: 20px;
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 5px solid #007bff;
-        }
-
-        .example p {
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Тест по математике</h1>
+    <h1>Математика и Тест по Математике</h1>
 
-        
-        <div class="section" id="quiz">
-            <h2>Тест</h2>
-            <div id="question" class="question"></div>
-            <div id="answers"></div>
-            <button id="submitAnswer">ОК</button>
-            <div id="result"></div>
-            <button id="nextButton" style="display: none;">Далее</button>
+    <div id="mathOverview" class="section" style="display: block;"> <!-- Initially show this section -->
+        <h2>Арифметика</h2>
+        <p>Арифметика - это раздел математики, изучающий основные операции с числами: сложение, вычитание, умножение и деление. Она является фундаментальной частью математики, на которой основываются более сложные разделы, такие как алгебра и геометрия.</p>
+
+        <h3>Основные операции</h3>
+        <ul>
+            <li>
+                <strong>Сложение</strong>:  a + b = c, где a и b - слагаемые, c - сумма.
+                <div class="formula">Например: 5 + 3 = 8</div>
+            </li>
+            <li>
+                <strong>Вычитание</strong>: a - b = c, где a - уменьшаемое, b - вычитаемое, c - разность.
+                <div class="formula">Например: 10 - 4 = 6</div>
+            </li>
+            <li>
+                <strong>Умножение</strong>: a ⋅ b = c, где a и b - множители, c - произведение.
+                <div class="formula">Например: 2 ⋅ 7 = 14</div>
+            </li>
+            <li>
+                <strong>Деление</strong>: a / b = c, где a - делимое, b - делитель, c - частное.
+                <div class="formula">Например: 15 / 3 = 5</div>
+            </li>
+        </ul>
+
+        <h3>Свойства операций</h3>
+        <ul>
+            <li><strong>Переместительное свойство сложения и умножения</strong>: a + b = b + a, a ⋅ b = b ⋅ a</li>
+            <li><strong>Сочетательное свойство сложения и умножения</strong>: (a + b) + c = a + (b + c), (a ⋅ b) ⋅ c = a ⋅ (b ⋅ c)</li>
+            <li><strong>Распределительное свойство умножения относительно сложения</strong>: a ⋅ (b + c) = a ⋅ b + a ⋅ c</li>
+        </ul>
+
+        <h3>Примеры</h3>
+        <div class="example">
+            <p><strong>Задача:</strong> Найти сумму чисел 12 и 7.</p>
+            <p><strong>Решение:</strong> 12 + 7 = 19</p>
+            <p><strong>Ответ:</strong> Сумма чисел 12 и 7 равна 19.</p>
+
+            <p><strong>Задача:</strong> Разделить число 24 на 6.</p>
+            <p><strong>Решение:</strong> 24 / 6 = 4</p>
+            <p><strong>Ответ:</strong> Частное от деления числа 24 на 6 равно 4.</p>
         </div>
 
-        <a href="index.html">
-            <button>Вернуться к Математике</button>
+        <a href="#" onclick="showQuiz()">
+            <button>Перейти к Тесту по Математике</button>
         </a>
+    </div>
+
+    <div id="mathQuiz" class="section">
+        <div class="container">
+            <h2>Тест по математике</h2>
+            <div id="quiz">
+                <div id="question" class="question"></div>
+                <div id="answers"></div>
+                <button id="submitAnswer">ОК</button>
+                <div id="result"></div>
+                <button id="nextButton" style="display: none;">Далее</button>
+                <br>
+                <a href="#" onclick="showOverview()">
+                    <button>Вернуться к Математике</button>
+                </a>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -144,10 +198,17 @@
             { question: "Число, которое делится на 1 и само на себя называется ___", answers: ["первым", "простым", "комплексным"], correct: 1 }
         ];
 
-        document.getElementById('nextButton').onclick = function() {
-            currentQuestion++;
+        function showQuiz() {
+            document.getElementById('mathOverview').style.display = 'none';
+            document.getElementById('mathQuiz').style.display = 'block';
             displayQuestion();
-        };
+        }
+
+        function showOverview() {
+            document.getElementById('mathOverview').style.display = 'block';
+            document.getElementById('mathQuiz').style.display = 'none';
+            resetQuiz();
+        }
 
         document.getElementById('submitAnswer').onclick = function() {
             const selected = document.querySelector('input[name="answer"]:checked');
@@ -165,6 +226,11 @@
                     resetQuiz();
                 }
             }
+        };
+
+        document.getElementById('nextButton').onclick = function() {
+            currentQuestion++;
+            displayQuestion();
         };
 
         function displayQuestion() {
@@ -187,9 +253,6 @@
             displayQuestion();
             document.getElementById('result').innerHTML = '';
         }
-
-        // Initialize the first question
-        displayQuestion();
     </script>
 </body>
 </html>
