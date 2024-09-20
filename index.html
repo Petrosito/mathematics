@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Математика и Тест по Математике</title>
+    <title>Математика</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -49,6 +49,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: none; /* Initially hide all sections */
+            text-align: center;
         }
 
         .formula {
@@ -82,15 +83,6 @@
             background-color: #45a049;
         }
 
-        /* Styles for the quiz section */
-        .container {
-            max-width: 600px;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
 
         .answer-option {
             background: #f9f9f9;
@@ -114,7 +106,7 @@
     </style>
 </head>
 <body>
-    <h1>Математика и Тест по Математике</h1>
+    <h1>Математика</h1>
 
     <div id="mathOverview" class="section" style="display: block;"> <!-- Initially show this section -->
         <h2>Арифметика</h2>
@@ -158,6 +150,58 @@
             <p><strong>Ответ:</strong> Частное от деления числа 24 на 6 равно 4.</p>
         </div>
 
+        <h2>Алгебра</h2>
+        <p>Алгебра - это раздел математики, занимающийся изучением чисел, операций над ними, а также отношениями и структурами. Алгебра широко используется для решение уравнений, описания математических моделей и формулирования общих правил, применимых к различным задачам.</p>
+
+        <h3>Основные понятия</h3>
+        <ul>
+            <li>
+                <strong>Переменная</strong>: символ, представляющий числовое значение (например, x, y).
+                <div class="formula">Пример: в уравнении 2x + 3 = 7, x - переменная.</div>
+            </li>
+            <li>
+                <strong>Уравнение</strong>: математическое выражение, в котором две стороны равны. Уравнения можно решать.
+                <div class="formula">Пример: x + 5 = 10.</div>
+            </li>
+            <li>
+                <strong>Функция</strong>: связь, которая каждому элементу из одного множества ставит в соответствие ровно один элемент из другого множества.
+                <div class="formula">Пример: f(x) = 2x + 1.</div>
+            </li>
+        </ul>
+
+        <h3>Примеры</h3>
+        <div class="example">
+            <p><strong>Задача:</strong> Найти значение x в уравнении 3x + 2 = 11.</p>
+            <p><strong>Решение:</strong> 3x = 9, значит x = 3.</p>
+            <p><strong>Ответ:</strong> Значение x равно 3.</p>
+        </div>
+
+        <h2>Геометрия</h2>
+        <p>Геометрия - это раздел математики, занимающийся изучением форм, размеров и свойств пространственных фигур и плоскостей. Она включает в себя такие понятия, как точки, линии, углы, поверхности и объемы. Геометрия имеет множество практических приложений в архитектуре, инженерии и других областях.</p>
+
+        <h3>Основные фигуры</h3>
+        <ul>
+            <li>
+                <strong>Треугольник</strong>: трехугольная фигура, сумма углов которой равна 180 градусам.
+                <div class="formula">Площадь треугольника: S = (1/2) * a * h.</div>
+            </li>
+            <li>
+                <strong>Квадрат</strong>: четырехугольник с равными сторонами и углами 90 градусов.
+                <div class="formula">Площадь квадрата: S = a².</div>
+            </li>
+            <li>
+                <strong>Круг</strong>: плоская фигура, все точки которой равноудалены от центра.
+                <div class="formula">Площадь круга: S = πr².</div>
+            </li>
+        </ul>
+
+        <h3>Примеры</h3>
+        <div class="example">
+            <p><strong>Задача:</strong> Найти площадь квадрата со стороной 4.</p>
+            <p><strong>Решение:</strong> S = 4² = 16.</p>
+            <p><strong>Ответ:</strong> Площадь квадрата равна 16.</p>
+        </div>
+
         <a href="#" onclick="showQuiz()">
             <button>Перейти к Тесту по Математике</button>
         </a>
@@ -186,7 +230,6 @@
         const maxAttempts = 3;
 
         const questions = [
-            { question: "Слон весит ___ тонн", answers: ["5", "6", "10"], correct: 0 },
             { question: "Площадь треугольника S = (1/2) ⋅ a ⋅ h. Какова формула для площади квадрата?", answers: ["S = a", "S = a²", "S = a³"], correct: 1 },
             { question: "Решение уравнения 2x - 5 = 1, где x =", answers: ["1", "2", "3"], correct: 2 },
             { question: "Объем куба V = a³. Если a = 5, то V =", answers: ["25", "100", "125"], correct: 2 },
